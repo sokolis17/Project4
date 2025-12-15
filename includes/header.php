@@ -19,8 +19,17 @@
         
         <?php if(isset($_SESSION['user_id'])): ?>
             <!-- Если вошли: Показываем кнопку "Выйти" и "Админка" -->
-            <a class="nav-link" href="#">👤 <?php echo $_SESSION['username']; ?></a>
-            <a class="nav-link btn btn-danger text-white btn-sm" href="logout.php">Выход</a>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            👤 <?php echo $_SESSION['username']; ?>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="create_post.php">📝 Написать пост</a></li>
+            <li><a class="dropdown-item" href="change_password.php">🔒 Сменить пароль</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="logout.php">🚪 Выход</a></li>
+        </ul>
+    </li>
         <?php else: ?>
             <!-- Если НЕ вошли: Показываем "Вход" и "Регистрация" -->
             <a class="nav-link" href="login.php">Вход</a>
